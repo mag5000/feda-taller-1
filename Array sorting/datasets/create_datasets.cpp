@@ -5,9 +5,7 @@
 
 using namespace std;
 
-// Función encargada de crear el dataset de arreglos dados los parametros establecidos
-// en el main.
-
+// Función encargada de crear el dataset de arreglos desordenados dados los parametros establecidos en el main.
 void createRandomArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
 	ofstream outfile("random_array_dataset.txt");
@@ -27,6 +25,7 @@ void createRandomArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, 
 	outfile.close();
 }
 
+// Función encargada de crear el dataset de arreglos ordenados dados los parametros establecidos en el main.
 void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
 	ofstream outfile("ordered_array_dataset.txt");
@@ -56,6 +55,8 @@ void createOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size,
 	outfile.close();
 }
 
+// Función encargada de crear el dataset de arreglos ordenados de forma inversa dados los 
+// parametros establecidos en el main.
 void createReverseOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
 	ofstream outfile("reverse_ordered_array_dataset.txt");
@@ -85,6 +86,9 @@ void createReverseOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_ma
 	outfile.close();
 }
 
+// Función encargada de crear el dataset de arreglos parcialmente ordenados dados los 
+// parametros establecidos en el main. Para ello primero crea un arreglo aleatorio y luego 
+// ordena la mitad del arreglo desde una posición al azar (entre el inicio y la mitad).
 void createSemiOrderedArrayDataset(int arr_jump, int arr_min_size, int arr_max_size, int arr_max_element){
 
 	ofstream outfile("semi_ordered_array_dataset.txt");

@@ -7,7 +7,6 @@
 using namespace std;
 
 // Función para imprimir los arreglos
-// Fuente: Elaboración propia
 void printArray(string algName, int arr[], int size)
 {
    cout<<algName<<": "<<endl;
@@ -19,7 +18,7 @@ void printArray(string algName, int arr[], int size)
 
 
 // Funcion que sirve para leer el dataset de arreglos que seran ordenados
-// recibe la ruta definida en el main.
+// recibe la ruta como parametro.
 // Fuente: elaboración propia basado en lo enseñado por Vicente Lermanda
 vector <vector<int>> readArrayDataset(string route){
 
@@ -63,6 +62,7 @@ void takeSortingTime(int exp_x_array, vector< vector<int>> arrays){
   ofstream outfile("output/results.csv");
   outfile << "size, algorithm, time\n";
 
+  //recorre el vector de vectores que serán ordenados
   for(int k = 0; k<arrays.size(); k++){ 
 
     temp_array_size = arrays[k].size();
@@ -72,6 +72,8 @@ void takeSortingTime(int exp_x_array, vector< vector<int>> arrays){
       temp_array[i] = arrays[k][i];
     }
 
+    // Para cada tamaño de arreglo se ejecutará el ordenamiento la veces definidas 
+    // al llamar a esta función
     for(int i =0;i< exp_x_array;i++){
 
 

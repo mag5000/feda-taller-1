@@ -7,9 +7,9 @@ using namespace std;
 t1_mmatrix::t1_mmatrix(){}
 t1_mmatrix::~t1_mmatrix(){}
 
-// Strassen Multiplication: Este algoritmo utiliza la recurrencia para la multiplicacion de matrices, al 
-// llamar a este mismo algoritmo para resolver la multiplicacion de las submatrices. Se diferencia del 
-// algoritmo standar de multiplicacion recursivo, porque reduce el númeor de multiplicaciones (o llamadas
+// Strassens Multiplication: Este algoritmo utiliza la recurrencia para la multiplicación de matrices, al 
+// llamar a este mismo algoritmo para resolver la multiplicación de las submatrices. Se diferencia del 
+// algoritmo standart de multiplicación recursivo al reducir el número de multiplicaciones (o llamadas
 // recursivas) de 8 a 7.
 // Fuente: https://www.codingninjas.com
 vector<vector<int>> t1_mmatrix::strassenMultiplication(vector<vector<int> > matrix_a, vector<vector<int> > matrix_b)
@@ -22,13 +22,14 @@ vector<vector<int>> t1_mmatrix::strassenMultiplication(vector<vector<int> > matr
     vector<int> result_matrix_rows(cols_b, 0);
     vector<vector<int> > result_matrix(rows_a, result_matrix_rows);
  
+    //caso base
     if (cols_a == 1){
         result_matrix[0][0] = matrix_a[0][0] * matrix_b[0][0];
     }else {
+
+	  // se crean las submatrices
         int split_index = cols_a / 2;
- 
         vector<int> row_vector(split_index, 0);
- 
         vector<vector<int>> a00(split_index, row_vector);
         vector<vector<int>> a01(split_index, row_vector);
         vector<vector<int>> a10(split_index, row_vector);
@@ -51,6 +52,7 @@ vector<vector<int>> t1_mmatrix::strassenMultiplication(vector<vector<int> > matr
             }
  		}
 
+	  //llamadas recursivas
         vector<vector<int>> p(strassenMultiplication(a00, addMatrix(b01, b11, split_index, -1)));
         vector<vector<int>> q(strassenMultiplication(addMatrix(a00, a01, split_index), b11));
         vector<vector<int>> r(strassenMultiplication(addMatrix(a10, a11, split_index), b00));
@@ -122,8 +124,8 @@ long long t1_mmatrix::strassenMultiplicationTime(vector<vector<int> > matrix_a, 
 }
 
 
-// Standart Multiplication: Esta funcion corresponde a la multiplicacion standart de matrices, en el que se recorre toda 
-// la matriz para su multiplicacion
+// Standart Multiplication: Esta funcion corresponde a la multiplicación standart de matrices, en el que se recorre toda 
+// la matriz para su multiplicación
 // Fuente: Entregado por Vicente Lermanda
 vector<vector<int> > t1_mmatrix::standartMultiplication(vector<vector<int> > matrix_a, vector<vector<int> > matrix_b) {
   int rows_a = matrix_a.size();
@@ -142,7 +144,7 @@ vector<vector<int> > t1_mmatrix::standartMultiplication(vector<vector<int> > mat
   return result_matrix;
 }
 
-// Funcion encargada de tomar el tiempo de ejecución de la multiplicacion standart
+// Funcion encargada de tomar el tiempo de ejecución de la multiplicación standart
 long long t1_mmatrix::standartMultiplicationTime(vector<vector<int> > matrix_a, vector<vector<int> > matrix_b){
 
   auto start_time = chrono::steady_clock::now();
@@ -154,7 +156,7 @@ long long t1_mmatrix::standartMultiplicationTime(vector<vector<int> > matrix_a, 
       
 }
 
-// Esta funcion corresponde a la multiplicacion de matrices en la que la segunda matriz se encuentra transpuesta. Su 
+// Esta función corresponde a la multiplicación de matrices en la que la segunda matriz se encuentra transpuesta. Su 
 // ventaja esta en la localidad de los datos.
 // Fuente: Entregado por Vicente Lermanda
 vector<vector<int> > t1_mmatrix::transposedMultiplication(vector<vector<int> > matrix_a, vector<vector<int> > matrix_b) {
@@ -187,7 +189,7 @@ vector<vector<int> > t1_mmatrix::transposedMultiplication(vector<vector<int> > m
   return result_matrix;
 } 
 
-// Funcion encargada de tomar el tiempo de ejecución de la multiplicacion con la transpuestade la segunda matriz.
+// Función encargada de tomar el tiempo de ejecución de la multiplicación con la transpuestade la segunda matriz.
 long long t1_mmatrix::transposedMultiplicationTime(vector<vector<int> > matrix_a, vector<vector<int> > matrix_b){
 
     auto start_time = chrono::steady_clock::now();

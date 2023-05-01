@@ -9,7 +9,6 @@ using namespace std;
 t1_sort::t1_sort(){}
 t1_sort::~t1_sort(){}
 
-
 // Funcion que sirve para intercambiar elementos de un array, es llamada por las funciones
 // de ordenamiento de Bubble Sort, Selection Sort, 
 // Fuente: obtenida de https://www.geeksforgeeks.org
@@ -34,6 +33,7 @@ void t1_sort::bubbleSort(int array[] , int size){
            swapped = true;
         }
      }
+     // en caso de que no se haya intercambiado ningun elemento, el vector estará ordenado
      if (swapped == false)
         break;
    }
@@ -54,7 +54,6 @@ long long t1_sort::bubbleSortTime(int array[], int size){
     return duration;
 
 }
-
 
 // Merge Sort: Algoritmo de ordenamiento que se basa en la combinación y ordenamiento de 2 
 // subarreglos ordenados. Su funcionamiento se basa en el paradigma de dividir para conquistar, 
@@ -138,7 +137,6 @@ void t1_sort::merge(int array[], int left, int mid, int right){
     delete[] right_array;
 }
 
-
 // Quick Sort: Esta funcion toma un elemento del arreglo como pivote y deja
 // a la izquierda todos los elementos que deberian ir antes y a la derecha los 
 // que deberían ir despues (en nuestro caso más pequeños a la izquierda y más grandes
@@ -200,7 +198,6 @@ long long t1_sort::quickSortTime(int array[], int size){
     return duration;
 
 }
-
     
 // Ordenamiento de la libreria estandart (STL): Este Algoritmo de ordenamiento es un algoritmo
 // combinado que utiliza Quicksort, Heapsort e Insertionsort, en caso de que el arreglo a ordenar 
@@ -214,6 +211,7 @@ void t1_sort::stlSort(int array[], int n){
 
 }
 
+// Funcion encargada de tomar el tiempo de ejecución de stlSort.
 long long t1_sort::stlSortTime(int array[], int size){
 
     int array_copy[size]; 
@@ -229,9 +227,7 @@ long long t1_sort::stlSortTime(int array[], int size){
 
 }
 
-
-
-// Funcion para imprimir los arreglos ordenados (para revision)
+// Funcion para imprimir los arreglos ordenados (para revisión)
 void t1_sort::imprimir(int array[], int size){
 
    for(int i =0;i<size;i++){

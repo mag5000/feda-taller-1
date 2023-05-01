@@ -8,9 +8,7 @@ using namespace std;
 
 
 
-// En caso de ser necesario se implementa un algoritmo para la impresión de matrices
-
-
+// Algoritmo para la impresión de matrices
 void print(string display, vector<vector<int> > matrix){
 
     int cols = matrix[0].size();
@@ -28,8 +26,6 @@ void print(string display, vector<vector<int> > matrix){
     return;
 }
  
-
-
 
 
 // Algoritmo encargado de leer el archivo del dataset de matrices que seran multiplicadas
